@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*;
 import java.io.*;
 
@@ -59,3 +60,15 @@ public class Qsort2{
     }
     
 }   
+=======
+public class QuickSort2 {
+
+    public int partition (int []a, int L, int R){
+
+	private int p = a[nextInt(a.length)];
+	private int si = 0;
+
+	for (int i = L; i < R - 1; i++){
+
+	    if (i < p)
+>>>>>>> e67b244375cb1962a41607491ff9e5a59231abc3
