@@ -5,7 +5,7 @@ public class Node{
     public Node(String s){
 	data = s;
     }
-    public void set Data (String s){
+    public void setData (String s){
 	data = s;
     }
     public String getData(){
@@ -19,6 +19,6 @@ public class Node{
     }
 
     public String toString(){
-	return data;
+	return "Data: " + data;
     }
 }
