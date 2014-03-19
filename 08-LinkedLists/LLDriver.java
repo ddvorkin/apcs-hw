@@ -1,14 +1,21 @@
-public class LLDriver{
+public class LLDriver {
 
-    public static void main (String[] args){
+    public static void main(String[] args){
 	MyLinkedList L = new MyLinkedList();
 
 	L.add("A");
-	L.add("B");
-	L.add("C");
-	L.add("D");
-	L.add("E");
-
 	System.out.println(L);
+	L.add("B");
+	System.out.println(L);
+	L.add("C");
+	System.out.println(L);
+	L.add("D");
+	System.out.println(L);
+	L.add("E");
+	System.out.println(L);
+	L.add(5, "F");
+	System.out.println(L);
+
+
     }
 }

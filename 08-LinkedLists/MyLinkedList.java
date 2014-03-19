@@ -20,5 +20,29 @@ public class MyLinkedList{
 	return s;
 
     }
+
+    public void add (int i, String s){
+	Node tmp = new Node (s);
+	Node temp = new Node (s);
+	temp = head;
+	for (int x = 0; x < i; x++){
+	    temp = temp.getNext();
+	}
+	temp.setNext(tmp);
+    }
+
+    public String get (int i){
+	Node tmp = new Node ("temp");
+	tmp.setNext(head);
+	for (int x = 0; x < i; x++){
+	    tmp = tmp.getNext();
+		}
+	return tmp.getNext();
+    }
+
+    public String set (int i, String s){
+	Node tmp = new Node (s);
+	for (int x = 0; x < i; x++){
+	    //finish
     
 }
