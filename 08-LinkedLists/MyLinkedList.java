@@ -1,48 +1,95 @@
-public class MyLinkedList{
+public class MyLinkedList {
     private Node head;
+    private int length = 0;
 
     public MyLinkedList() {
-	head = null; //is null by default, so unnecessary
+        head = null; //is null by default, so unnecessary
     }
 
-    public void add (String s){
-	Node tmp = new Node (s);
-	/*
-	head = tmp;
-	*/
-	tmp.setNext(head);
-	head = tmp;
-    }
 
-    public String toString(){
-	String s;
-	s = "" + head; //To be completed.
-	return s;
+    public String toString() {
+        String s = "";
+        Node pointer = head;
+
+        for (int x = 0; x < length; x++) {
+
+            s = s + "," + pointer.getData();
+            pointer = pointer.getNext();
+        }
+        return s;
 
     }
 
-    public void add (int i, String s){
-	Node tmp = new Node (s);
-	Node temp = new Node (s);
-	temp = head;
+    public void add(String s) {
+        if (length == 0) {
+            head = new Node(s);
+            length++;
+        } else {
+            this.add(length, s);
+        }
+
+    }
+
+    public void add(int i, String s) {
+        if (i == 0) {
+            head = new Node(s);
+
+        } else {
+            Node pointer = head;
+
+            for (int x = 0; x < i - 1; x++) {
+                pointer = pointer.getNext();
+            }
+            length++;
+            pointer.setNext(new Node(s));
+        }
+    }
+
+
+    public String get(int i) {
+        Node node = head;
+        for (int x = 0; x < i; x++) {
+            node = node.getNext();
+        }
+        return node.getData();
+    }
+
+      public String set (int i, String s){
+    Node node = head;
+    String q = "";
 	for (int x = 0; x < i; x++){
-	    temp = temp.getNext();
-	}
-	temp.setNext(tmp);
+	    node = node.getNext();
     }
+          q = node.getData();
+          node.setData(s);
+          return q;
+      }
 
-    public String get (int i){
-	Node tmp = new Node ("temp");
-	tmp.setNext(head);
-	for (int x = 0; x < i; x++){
-	    tmp = tmp.getNext();
-		}
-	return tmp.getNext();
+   /* public String remove (int i){
+        Node node = head;
+        for (int x = 0; x <= i; x++){
+            node = node.getNext();
+
+            }
+        }
+    } Not sure how to remove.
+     */
+
+    public int find (String s){
+        Node node = head;
+        for (int x = 0; x < length; x++){
+            if (node.getData().equals(s)) {
+        return x;
+            }
+            else{
+                node = node.getNext();
+            }
+        }
+        return -1;
+        }
+
+
+    public int length() {
+        return length;
     }
-
-    public String set (int i, String s){
-	Node tmp = new Node (s);
-	for (int x = 0; x < i; x++){
-	    //finish
-    
 }

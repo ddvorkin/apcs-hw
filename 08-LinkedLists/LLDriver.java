@@ -4,18 +4,17 @@ public class LLDriver {
 	MyLinkedList L = new MyLinkedList();
 
 	L.add("A");
-	System.out.println(L);
+
 	L.add("B");
-	System.out.println(L);
+
 	L.add("C");
-	System.out.println(L);
+	System.out.println(L.get(1));
 	L.add("D");
-	System.out.println(L);
+	L.set(1, "Apple");
+
 	L.add("E");
 	System.out.println(L);
-	L.add(5, "F");
-	System.out.println(L);
 
-
+        System.out.println(L.find("Apple"));
     }
 }
