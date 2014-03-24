@@ -3,7 +3,7 @@ public class MyLinkedList {
     private int length = 0;
 
     public MyLinkedList() {
-        head = null; //is null by default, so unnecessary
+        head = new Node(0);
     }
 
 
