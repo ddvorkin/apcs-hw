@@ -1,11 +1,9 @@
 public class MyLinkedList {
     private Node head;
     private int length = 0;
-    private Node tail;
 
     public MyLinkedList() {
         head = new Node("head");
-        tail=new Node("tail");
     }
 
 
