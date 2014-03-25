@@ -1,11 +1,12 @@
-public class MyLinkedList {
+public class MyLinkedList3 {
     private Node head;
     private int length = 0;
     private Node tail;
 
-    public MyLinkedList() {
+    public MyLinkedList3() {
         head = new Node("head");
         tail=new Node("tail");
+        tail.setNext(head);
     }
 
 
@@ -15,14 +16,14 @@ public class MyLinkedList {
 
         for (int x = 0; x < length; x++) {
 
-            s = s + "," + pointer.getData(); //To be completed.
+            s = s + "," + pointer.getData();
             pointer = pointer.getNext();
         }
         return s;
 
     }
 
-    public void add(String s) {
+    public void addtoend(String s) {
         if (length == 0) {
             head=new Node(s);
             length++;
@@ -35,6 +36,7 @@ public class MyLinkedList {
     public void add(int i, String s) {
         if (i == 0) {
             head = new Node(s);
+            head.setNext(tail);
 
         } else {
             Node pointer = head;
@@ -43,7 +45,10 @@ public class MyLinkedList {
                 pointer = pointer.getNext();
             }
             length++;
-            pointer.setNext(new Node(s));
+            Node n=new Node(s);
+            n.setNext(tail);
+            pointer.setNext(n);
+
         }
     }
 
@@ -56,39 +61,39 @@ public class MyLinkedList {
         return node.getData();
     }
 
-      public String set (int i, String s){
-    Node node = head;
-    String q = "";
+    public String set (int i, String s){
+	Node node = head;
+	String q = "";
 	for (int x = 0; x < i; x++){
 	    node = node.getNext();
+	}
+	q = node.getData();
+	node.setData(s);
+	return q;
     }
-          q = node.getData();
-          node.setData(s);
-          return q;
-      }
 
-   /* public String remove (int i){
-        Node node = head;
-        for (int x = 0; x <= i; x++){
-            node = node.getNext();
+    /* public String remove (int i){
+       Node node = head;
+       for (int x = 0; x <= i; x++){
+       node = node.getNext();
 
-            }
-        }
-    }
-     */
+       }
+       }
+       }
+    */
 
     public int find (String s){
         Node node = head;
         for (int x = 0; x < length; x++){
             if (node.getData().equals(s)) {
-        return x;
+		return x;
             }
             else{
                 node = node.getNext();
             }
         }
         return -1;
-        }
+    }
 
 
     public int length() {
