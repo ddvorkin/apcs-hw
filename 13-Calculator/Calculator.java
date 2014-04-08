@@ -1,51 +1,44 @@
+import java.util.*;
+import java.io.*;
+
 public class Calculator {
 
-    private Node top;
-    private int numElts;
+    private static MyStack a = new MyStack();
 
-    //constructor 1
-    public MyStack(){
-	top = null;
+    public static boolean function(String x) {
+        return (x.equals("+") || x.equals("-") || x.equals("*") || x
+                .equals("/"));
     }
 
-    //push 2
-    public void push(String s){
-	Node n = new Node (s);
-	n.setNext(top);
-	top = n;
-	numElts = numElts+1;
+    public static double calc(String input){
+        String x;
+        Stack<Integer> stack = new Stack<Integer>();
+        Scanner scan = new Scanner(input);
+
+        while (scan.hasNext()) {
+            x = scan.next();
+
+            if (function(x)) {
+                if (stack.size() > 1) {
+                    if (x.equals("+")) {
+                        stack.push((Integer) stack.pop() + (Integer) stack.pop());
+                    } else if (x.equals("-")) {
+                        stack.push(-(Integer) stack.pop() + (Integer) stack.pop());
+                    } else if (x.equals("*")) {
+                        stack.push((Integer) stack.pop() * (Integer) stack.pop());
+                    } else if (x.equals("/")) {
+                        double one = stack.pop();
+                        double two = stack.pop();
+
+                    }
+                }
+            }
+        }
+        return (Integer) stack.pop();
+
     }
 
-    //pop
-    public String pop(){
-	String s;
-	s = top.getData();
-	top = top.getNext();
-	numElts = numElts - 1;
-	return s;   
-}
-
-    //peek
-    public String peek(){
-	return top.getData();
-    }
-
-    //isEmpty
-    public boolean isEmpty(){
-	return top == null;
-    }
-
-    //toString 3
-    public String toString(){
-	String tmp = "";
-	Node currentNode = top;
-	while (currentNode != null){
-	    tmp += currentNode.getData() + ",";
-	    currentNode = currentNode.getNext();
-	}
-	return tmp;
+    public static void main (String [] args){
+        System.out.println(calc("5 6 *"));
     }
 }
-
-/* For string to double: Double.parseDouble(_)
-For string to int: Integer.parseInt(_)
