@@ -3,27 +3,33 @@ import java.io.*;
 
 public class Calculator {
 
-    private static MyStack a = new MyStack();
+    private ArrayStack a;
 
-    public static boolean function(String x) {
+    public boolean function(String x) {
         return (x.equals("+") || x.equals("-") || x.equals("*") || x
                 .equals("/"));
     }
 
-    public static double calc(String input){
+    public Calculator(){
+	a = new ArrayStack();
+    }
+
+    public void calc(){
         String x;
         Stack<Integer> stack = new Stack<Integer>();
-        Scanner scan = new Scanner(input);
+        Scanner scan = new Scanner(x);
 
         while (scan.hasNext()) {
             x = scan.next();
 
             if (function(x)) {
+		Integer termA = Integer.parseInt(stack.pop());//Needs fix
+		Integer termB = Integer.parseInt(stack.pop());//Needs fix
                 if (stack.size() > 1) {
                     if (x.equals("+")) {
                         stack.push((Integer) stack.pop() + (Integer) stack.pop());
                     } else if (x.equals("-")) {
-                        stack.push(-(Integer) stack.pop() + (Integer) stack.pop());
+                        stack.push((Integer) stack.pop() + (Integer) stack.pop());
                     } else if (x.equals("*")) {
                         stack.push((Integer) stack.pop() * (Integer) stack.pop());
                     } else if (x.equals("/")) {
@@ -32,13 +38,17 @@ public class Calculator {
 
                     }
                 }
+		else {
+		    stack.push(x);
+		}
             }
         }
-        return (Integer) stack.pop();
-
     }
 
     public static void main (String [] args){
-        System.out.println(calc("5 6 *"));
+	Calculator calc = new Calculator();
+      calc.calc();
     }
 }
+
+//A lot of help from Nick Romanoff.
