@@ -15,7 +15,7 @@ public class Calculator {
     }
 
     public void calc(){
-        String x;
+        String x = "";
         Stack<Integer> stack = new Stack<Integer>();
         Scanner scan = new Scanner(x);
 
@@ -23,8 +23,6 @@ public class Calculator {
             x = scan.next();
 
             if (function(x)) {
-		Integer termA = Integer.parseInt(stack.pop());//Needs fix
-		Integer termB = Integer.parseInt(stack.pop());//Needs fix
                 if (stack.size() > 1) {
                     if (x.equals("+")) {
                         stack.push((Integer) stack.pop() + (Integer) stack.pop());
@@ -39,7 +37,7 @@ public class Calculator {
                     }
                 }
 		else {
-		    stack.push(x);
+		    stack.push(Integer.parseInt(x));
 		}
             }
         }
@@ -51,4 +49,6 @@ public class Calculator {
     }
 }
 
-//A lot of help from Nick Romanoff.
+//A lot of help from Nick Romanoff (mainly calc() function).
+
+//Almost finished; compiles, but does not stay open. Works logically.
