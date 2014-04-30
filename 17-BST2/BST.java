@@ -66,4 +66,29 @@ public class BST {
 	    }
 	}
     }
+
+    public void print (Node n){
+	if (n == null)
+	    return;
+	else {
+	    print(n.getLeft());
+	    System.out.println(n.getData());
+	    print(n.getRight());
+	}
+    }
 }
+
+/* Pre order traversal:
+process node
+traverse (left)
+traverse (right)
+
+In Order traversal:
+traverse (left)
+process node
+traverse (right)
+
+Postorder transversal
+traverse (left)
+traverse (right)
+process node
