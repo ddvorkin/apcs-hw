@@ -14,13 +14,18 @@ public class Driver{
 	System.out.println(tm);
 	System.out.println(tm.get(10));
 
+    TreeMap <Integer, Double> temp = new TreeMap <Integer, Double> ();
+
+    RandomTreeMapInsert(temp, 1, 10);
+
+    System.out.println(temp);
+
     }
 
-    TreeMap <Integer, Integer> temp = new TreeMap <Integer, Integer> ();
-
-    public static void randomTreeMapInsert(TreeMap<Integer, Integer> temp, int num, int range){
+    public static void RandomTreeMapInsert(TreeMap<Integer, Double> tmp, int num, int range){
 	for (int i = 0; i < num; i++){
-	temp.put(i,Math.random() * range);
+	tmp.put(i,Math.random() * range);
 	}
+	System.out.println(tmp);
     }
 }
