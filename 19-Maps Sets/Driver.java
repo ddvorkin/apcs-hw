@@ -28,4 +28,19 @@ public class Driver{
 	}
 	System.out.println(tmp);
     }
+
+    HashMap hm = new HashMap();
+    hm.put("Apple", new Double(3.8));
+    hm.put("Banana", new Double(2.1));
+    hm.put("Cantelope", new Double(7.6));
+    hm.put("Dewberry", new Double(8.4));
+    hm.put("Eggplant", new Double(3.1));
+      
+    Set set = hm.entrySet();
+    Iterator i = set.iterator();
+    while(i.hasNext()) {
+	Map.Entry me = (Map.Entry)i.next();
+	System.out.print(me.getKey() + ": ");
+	System.out.println(me.getValue());
+    }
 }
